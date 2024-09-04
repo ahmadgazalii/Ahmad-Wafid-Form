@@ -1,5 +1,5 @@
 const getData = async () => {
-  const res = await fetch("/api/form", {
+  const res = await fetch("https://form-data-storing.vercel.app/api/form", {
     cache: "no-store",
   });
   try {

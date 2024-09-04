@@ -81,30 +81,33 @@ const Form = () => {
     try {
       event.preventDefault();
       if (selectedCountry) {
-        const res = await fetch("/api/form", {
-          method: "POST",
-          body: JSON.stringify({
-            country: selectedCountry?.label,
-            city: selectedcity?.label,
-            countrytravelto: selectedtravel?.label,
-            firstname: firstname,
-            lastname: lastname,
-            dateofbirth: dateofbirthValue,
-            gender: selectedGender?.label,
-            martialstatus: selectedstatus?.label,
-            passportno: passportno,
-            confirmpassportno: confirmpassportno,
-            passportissuedate: dateofissueValue,
-            passportissueplace: passportissueplace,
-            passportexpirydate: dateofexpireValue,
-            visatype: selectedvisatype?.label,
-            email: email,
-            phoneno: phoneno,
-            nationalid: nationalid,
-            postionappliedfor: selectedposition?.label,
-            other: other,
-          }),
-        });
+        const res = await fetch(
+          "https://form-data-storing.vercel.app/api/form",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              country: selectedCountry?.label,
+              city: selectedcity?.label,
+              countrytravelto: selectedtravel?.label,
+              firstname: firstname,
+              lastname: lastname,
+              dateofbirth: dateofbirthValue,
+              gender: selectedGender?.label,
+              martialstatus: selectedstatus?.label,
+              passportno: passportno,
+              confirmpassportno: confirmpassportno,
+              passportissuedate: dateofissueValue,
+              passportissueplace: passportissueplace,
+              passportexpirydate: dateofexpireValue,
+              visatype: selectedvisatype?.label,
+              email: email,
+              phoneno: phoneno,
+              nationalid: nationalid,
+              postionappliedfor: selectedposition?.label,
+              other: other,
+            }),
+          }
+        );
         console.log(res.ok);
         toast.success("Form Submit Successfully"),
           {
