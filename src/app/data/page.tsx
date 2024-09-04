@@ -1,5 +1,7 @@
+import { BASE_URL } from "@/constant/constants";
+
 const getData = async () => {
-  const res = await fetch("https://form-data-storing.vercel.app/api/form", {
+  const res = await fetch(`${BASE_URL}/api/form`, {
     cache: "no-store",
   });
   try {
