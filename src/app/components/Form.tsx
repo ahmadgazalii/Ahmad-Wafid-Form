@@ -81,7 +81,7 @@ const Form = () => {
     try {
       event.preventDefault();
       if (selectedCountry) {
-        const res = await fetch("http://localhost:3000/api/form", {
+        const res = await fetch("/api/form", {
           method: "POST",
           body: JSON.stringify({
             country: selectedCountry?.label,
