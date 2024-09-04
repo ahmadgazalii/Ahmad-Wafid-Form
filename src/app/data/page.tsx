@@ -1,5 +1,5 @@
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/form", {
+  const res = await fetch("/api/form", {
     cache: "no-store",
   });
   try {
