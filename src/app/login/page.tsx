@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { BASE_URL } from "@/constant/constant";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +25,7 @@ const LoginForm = () => {
 
       if (res.ok) {
         // On success, redirect to /data
-        router.push("/data");
+        router.push(`${BASE_URL}/data`);
       } else {
         // Handle login failure
         console.error("Login failed");

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { BASE_URL } from "./constant/constant";
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -7,7 +8,7 @@ export function middleware(request: NextRequest) {
 
   if (pathname.startsWith("/data") && !token) {
     // Redirect to login if not authenticated
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.redirect(new URL(`${BASE_URL}/login`, request.url));
   }
 
   return NextResponse.next();
