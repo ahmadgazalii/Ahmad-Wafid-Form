@@ -12,6 +12,13 @@ import {
 import Select from "react-select";
 import toast, { Toaster } from "react-hot-toast";
 import { BASE_URL } from "@/constant/constants";
+import { motion } from "framer-motion";
+import {
+  fadeIn,
+  letter,
+  sentence,
+  staggerContainer,
+} from "./animations/Motion";
 
 type OptionType = {
   value: string;
@@ -135,23 +142,50 @@ const Form = () => {
       console.log("error");
     }
   };
+  const line1 = "Book a medical examination appointment ";
 
   return (
     <>
       <Toaster position="top-right" />
-      <div className="h-full w-full py-32 px-6">
-        <div className="max-w-[1100px] justify-items-end   border p-6 sm:p-10 rounded-xl shadow-md shadow-black border-gray-300 items-center flex flex-col mx-auto text-black   bg-[#ffff]  ">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        viewport={{ once: false, amount: 0.25 }}
+        whileInView="show"
+        className="h-full w-full py-32 px-6"
+      >
+        <motion.div
+          variants={fadeIn("up", "tween", 0.1, 1)}
+          className="max-w-[1100px] justify-items-end   border p-6 sm:p-10 rounded-xl shadow-md shadow-black border-gray-300 items-center flex flex-col mx-auto text-black   bg-[#ffff]  "
+        >
           <div className="flex flex-col w-full space-y-10 ">
             {/* medical examination */}
-            <p className="text-xl sm:text-4xl font-bold ">
-              Book a medical examination appointment
-            </p>
+
+            <div>
+              <motion.p variants={sentence} initial="hidden" animate="visible">
+                {line1.split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    variants={letter}
+                    className="text-xl sm:text-4xl font-bold "
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </motion.p>
+            </div>
+
             <div className="grid w-full  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
               {/* country */}
               <div className="  flex-col w-full  place-self-end ">
                 <div className="space-y-4">
                   <p className="text-xl font-bold">Location</p>
-                  <p className="text-sm font-bold text-gray-500 ">Country</p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">Country </p>
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <Select
                     className="  rounded-xl "
                     value={selectedCountry}
@@ -187,7 +221,12 @@ const Form = () => {
               {/* city */}
               <div className="flex flex-col w-full  justify-end ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">City</p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">City</p>
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <Select
                     className="  rounded-xl "
                     value={selectedcity}
@@ -224,9 +263,16 @@ const Form = () => {
               {/* country traveling to */}
               <div className="flex flex-col w-full  justify-end ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">
-                    Country Traveling To
-                  </p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">
+                      {" "}
+                      Country Traveling To
+                    </p>
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
+
                   <Select
                     className="  rounded-xl "
                     value={selectedtravel}
@@ -269,7 +315,15 @@ const Form = () => {
               <div className="  flex-col w-full  justify-end ">
                 <div className="space-y-4">
                   <p className="text-xl font-bold">Candidate's information</p>
-                  <p className="text-sm font-bold text-gray-500 ">First Name</p>
+
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">
+                      First Name
+                    </p>
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <input
                     value={firstname}
                     onChange={(e) => setFirstname(e.target.value)}
@@ -285,7 +339,15 @@ const Form = () => {
               {/* last name */}
               <div className="   w-full  place-self-end ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">Last Name</p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">
+                      Last Name
+                    </p>
+
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <input
                     value={lastname}
                     onChange={(e) => setLastname(e.target.value)}
@@ -301,9 +363,16 @@ const Form = () => {
               {/* date of birth */}
               <div className="   w-full  place-self-end ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">
-                    Date of Birth
-                  </p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">
+                      Date of Birth
+                    </p>
+
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
+
                   <input
                     type="date"
                     value={dateofbirthValue}
@@ -317,7 +386,13 @@ const Form = () => {
               </div>
               {/* gender */}
               <div className="space-y-4">
-                <p className="text-sm font-bold text-gray-500 ">Gender</p>
+                <div className=" flex justify-between items-center">
+                  <p className="text-sm font-bold text-gray-500 ">Gender</p>
+
+                  <span className="text-[10px] font-bold text-gray-500 ">
+                    (required)
+                  </span>
+                </div>
                 <Select
                   className="  rounded-xl "
                   value={selectedGender}
@@ -352,9 +427,15 @@ const Form = () => {
               </div>
               {/* status */}
               <div className="space-y-4">
-                <p className="text-sm font-bold text-gray-500 ">
-                  Marital status
-                </p>
+                <div className=" flex justify-between items-center">
+                  <p className="text-sm font-bold text-gray-500 ">
+                    Marital status
+                  </p>
+
+                  <span className="text-[10px] font-bold text-gray-500 ">
+                    (required)
+                  </span>
+                </div>
                 <Select
                   className="  rounded-xl "
                   value={selectedstatus}
@@ -390,9 +471,15 @@ const Form = () => {
               {/* password number */}
               <div className="   w-full   ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">
-                    Passport number №
-                  </p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">
+                      Passport number №
+                    </p>
+
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <input
                     value={passportno}
                     onChange={(e) => setpassportno(e.target.value)}
@@ -408,9 +495,14 @@ const Form = () => {
               {/*Confirm password number */}
               <div className="   w-full   ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">
-                    Confirm Passport №
-                  </p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">
+                      Confirm Passport №
+                    </p>
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <input
                     value={confirmpassportno}
                     onChange={(e) => setconfirmpassportno(e.target.value)}
@@ -426,9 +518,15 @@ const Form = () => {
               {/* password issue date */}
               <div className="   w-full  place-self-end">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">
-                    Passport Issue Date
-                  </p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">
+                      Passport Issue Date
+                    </p>
+
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <input
                     type="date"
                     value={dateofissueValue}
@@ -443,9 +541,15 @@ const Form = () => {
               {/* password issue place */}
               <div className="   w-full   ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">
-                    Passport Issue Place
-                  </p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">
+                      Passport Issue Place
+                    </p>
+
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <input
                     value={passportissueplace}
                     onChange={(e) => setpassportissueplace(e.target.value)}
@@ -461,9 +565,15 @@ const Form = () => {
               {/* password expiry date */}
               <div className="   w-full  place-self-end ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">
-                    Passport Expiry Date
-                  </p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">
+                      Passport Expiry Date
+                    </p>
+
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <input
                     type="date"
                     value={dateofexpireValue}
@@ -477,7 +587,13 @@ const Form = () => {
               </div>
               {/* visa type */}
               <div className="space-y-4">
-                <p className="text-sm font-bold text-gray-500 ">Visa Type</p>
+                <div className=" flex justify-between items-center">
+                  <p className="text-sm font-bold text-gray-500 ">Visa Type</p>
+
+                  <span className="text-[10px] font-bold text-gray-500 ">
+                    (required)
+                  </span>
+                </div>
                 <Select
                   className="  rounded-xl "
                   value={selectedvisatype}
@@ -514,7 +630,13 @@ const Form = () => {
               {/* email */}
               <div className="   w-full   ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">Email ID</p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">Email ID</p>
+
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <input
                     value={email}
                     onChange={(e) => setemail(e.target.value)}
@@ -530,7 +652,13 @@ const Form = () => {
               {/* phone no */}
               <div className="   w-full   ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">Phone no</p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">Phone no</p>
+
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <input
                     value={phoneno}
                     onChange={(e) => setphoneno(e.target.value)}
@@ -546,9 +674,15 @@ const Form = () => {
               {/* notion id */}
               <div className="   w-full   ">
                 <div className="space-y-4">
-                  <p className="text-sm font-bold text-gray-500 ">
-                    National ID
-                  </p>
+                  <div className=" flex justify-between items-center">
+                    <p className="text-sm font-bold text-gray-500 ">
+                      National ID
+                    </p>
+
+                    <span className="text-[10px] font-bold text-gray-500 ">
+                      (required)
+                    </span>
+                  </div>
                   <input
                     value={nationalid}
                     onChange={(e) => setnationalid(e.target.value)}
@@ -564,9 +698,15 @@ const Form = () => {
               </div>
               {/* position applied for*/}
               <div className="space-y-4   ">
-                <p className="text-sm font-bold text-gray-500 ">
-                  Position applied for
-                </p>
+                <div className=" flex justify-between items-center">
+                  <p className="text-sm font-bold text-gray-500 ">
+                    Position applied for
+                  </p>
+
+                  <span className="text-[10px] font-bold text-gray-500 ">
+                    (required)
+                  </span>
+                </div>
                 <Select
                   className="  rounded-xl "
                   value={selectedposition}
@@ -602,7 +742,13 @@ const Form = () => {
               </div>
               {/* Other */}
               <div className="space-y-4  md:w-[400px] ">
-                <p className="text-sm font-bold text-gray-500 ">Other</p>
+                <div className=" flex justify-between items-center">
+                  <p className="text-sm font-bold text-gray-500 ">Other</p>
+
+                  <span className="text-[10px] font-bold text-gray-500 ">
+                    (optional)
+                  </span>
+                </div>
                 <div className="flex space-x-2">
                   {/* <input type="checkbox"></input> */}
 
@@ -621,19 +767,35 @@ const Form = () => {
               </div>
             </div>
 
-            <div className="flex justify-end">
-              <div className=" w-[60%]  md:w-[25%] text-center text-white py-3 bg-gray-600 rounded-lg">
-                <button
-                  onClick={FormSubmit}
-                  className="md:text-lg font-semibold  "
-                >
+            <div className="flex flex-col items-end justify-end">
+              <div
+                onClick={FormSubmit}
+                className=" w-[60%] cursor-pointer  md:w-[25%] text-center text-white py-3 bg-gray-600 rounded-lg"
+              >
+                <button className="md:text-lg font-semibold  ">
                   Save and Coutinue
                 </button>
               </div>
+              <p className=" mt-6 text-sm font-bold ">
+                {" "}
+                <span className="text-red-600 text-lg">Note:</span> Please make
+                sure you fill out the complete form with the correct
+                information.
+              </p>
+
+              <p className=" mt-6 text-lg font-bold ">
+                {" "}
+                نوٹ
+                <span className="text-red-600 text-sm">
+                  {" "}
+                  : براہ کرم اس بات کو یقینی بنائیں کہ آپ نے مکمل فارم درست
+                  معلومات کے ساتھ بھر لیا ہے۔
+                </span>
+              </p>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </>
   );
 };

@@ -21,10 +21,6 @@ const Footer = () => {
             <p className="text-white text-sm">+92 318 0414119 </p>
             <p className="text-white text-sm">+92 318 0414119 </p>
           </div>
-          <div className="space-y-2">
-            <p className="text-white text-lg">Office Address</p>
-            <p className="text-white text-sm">mozang near ganaga ram</p>
-          </div>
         </div>
       </div>
       <div className="text-center text-xs text-white pb-3">

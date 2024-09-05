@@ -14,12 +14,16 @@ const Navbar = () => {
   };
   return (
     <div className="w-full  shadow-sm shadow-black">
-      <div className=" py-4 items-center flex max-w-[1400px] mx-4 md:mx-20 justify-between ">
+      <div className=" py-4 items-center flex max-w-[1400px] mx-4 md:mx-16 justify-between ">
         <div className="flex items-center space-x-2">
           <div className=" w-16 flex items-center sm:w-[80px] sm:h-[80px]">
             <Image src={"/tree.png"} alt="/logo" width={80} height={80} />
           </div>
-          <p className="sm:text-2xl text-black"> Wafid Appoinment</p>
+          <p className="sm:text-2xl font-bold text-black"> Wafid Appoinment</p>
+        </div>
+
+        <div className="flex items-center">
+          <p className="text-[18px] font-bold underline">Payments</p>
         </div>
         <button
           onClick={handleClick}
