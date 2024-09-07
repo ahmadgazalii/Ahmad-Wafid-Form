@@ -22,9 +22,6 @@ const Navbar = () => {
           <p className="sm:text-2xl font-bold text-black"> Wafid Appoinment</p>
         </div>
 
-        <div className="flex items-center">
-          <p className="text-[18px] font-bold underline">Payments</p>
-        </div>
         <button
           onClick={handleClick}
           className="bg-green-500 hover:bg-green-700 text-white font-bold p-2 sm:py-4 sm:px-4 rounded  text-xs sm:text-[18px]"

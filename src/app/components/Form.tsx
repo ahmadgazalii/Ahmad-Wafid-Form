@@ -84,6 +84,7 @@ const Form = () => {
   const handlevisatype = (selectedOption: any) => {
     setSelectedvisatype(selectedOption);
   };
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const FormSubmit = async (event: any) => {
     try {
@@ -114,10 +115,21 @@ const Form = () => {
           }),
         });
         console.log(res.ok);
+
         toast.success("Form Submit Successfully"),
           {
             position: "top-right",
           };
+        if (res.ok) {
+          toast.success("Form submitted successfully", {
+            position: "top-right",
+          });
+          setIsSubmitted(true); // Set state to show the new button
+        } else {
+          toast.error("Failed to submit form", {
+            position: "top-right",
+          });
+        }
       }
       setSelectedcity(null);
       setSelectedCountry(null);
@@ -768,14 +780,45 @@ const Form = () => {
             </div>
 
             <div className="flex flex-col items-end justify-end">
-              <div
+              {/* <div
                 onClick={FormSubmit}
                 className=" w-[60%] cursor-pointer  md:w-[25%] text-center text-white py-3 bg-gray-600 rounded-lg"
               >
                 <button className="md:text-lg font-semibold  ">
                   Save and Coutinue
                 </button>
+              </div> */}
+
+              <div className="flex justify-end items-center w-full space-x-4">
+                <div
+                  onClick={FormSubmit}
+                  className={`w-[60%] cursor-pointer md:w-[25%] text-center py-3 rounded-lg ${
+                    isSubmitted
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-gray-600 text-white"
+                  }`}
+                >
+                  <button
+                    className={`"md:text-lg font-semibold" ${
+                      isSubmitted
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-gray-600 text-white"
+                    }`}
+                    disabled={isSubmitted}
+                  >
+                    Save
+                  </button>
+                </div>
+
+                {isSubmitted && (
+                  <div className="w-[60%] md:w-[25%] text-center text-white py-3 bg-blue-600 rounded-lg">
+                    <button className="md:text-lg font-semibold">
+                      Continue{" "}
+                    </button>
+                  </div>
+                )}
               </div>
+
               <p className=" mt-6 text-sm font-bold ">
                 {" "}
                 <span className="text-red-600 text-lg">Note:</span> Please make
