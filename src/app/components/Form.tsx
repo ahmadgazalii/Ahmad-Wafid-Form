@@ -19,6 +19,7 @@ import {
   sentence,
   staggerContainer,
 } from "./animations/Motion";
+import Link from "next/link";
 
 type OptionType = {
   value: string;
@@ -779,43 +780,29 @@ const Form = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-end justify-end">
-              {/* <div
-                onClick={FormSubmit}
-                className=" w-[60%] cursor-pointer  md:w-[25%] text-center text-white py-3 bg-gray-600 rounded-lg"
-              >
-                <button className="md:text-lg font-semibold  ">
-                  Save and Coutinue
-                </button>
-              </div> */}
-
+            <div className="flex  flex-col items-end justify-end">
               <div className="flex justify-end items-center w-full space-x-4">
-                <div
+                <button
                   onClick={FormSubmit}
-                  className={`w-[60%] cursor-pointer md:w-[25%] text-center py-3 rounded-lg ${
+                  className={`w-[60%] md:text-lg font-semibold cursor-pointer md:w-[25%] text-center py-3 rounded-lg ${
                     isSubmitted
                       ? "bg-gray-400 cursor-not-allowed"
                       : "bg-gray-600 text-white"
                   }`}
+                  disabled={isSubmitted}
                 >
-                  <button
-                    className={`"md:text-lg font-semibold" ${
-                      isSubmitted
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-gray-600 text-white"
-                    }`}
-                    disabled={isSubmitted}
-                  >
-                    Save
-                  </button>
-                </div>
+                  Save
+                </button>
 
                 {isSubmitted && (
-                  <div className="w-[60%] md:w-[25%] text-center text-white py-3 bg-blue-600 rounded-lg">
-                    <button className="md:text-lg font-semibold">
+                  <Link href={"/payment"}>
+                    <button
+                      className="md:text-lg 
+                      font-semibold px-10 text-center text-white py-3 bg-blue-600 rounded-lg"
+                    >
                       Continue{" "}
                     </button>
-                  </div>
+                  </Link>
                 )}
               </div>
 
