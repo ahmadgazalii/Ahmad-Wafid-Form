@@ -13,13 +13,9 @@ import Select from "react-select";
 import toast, { Toaster } from "react-hot-toast";
 import { BASE_URL } from "@/constant/constants";
 import { motion } from "framer-motion";
-import {
-  fadeIn,
-  letter,
-  sentence,
-  staggerContainer,
-} from "./animations/Motion";
+
 import Link from "next/link";
+import { fadeIn, letter, sentence, staggerContainer } from "./animations/Motion";
 
 type OptionType = {
   value: string;
@@ -27,135 +23,160 @@ type OptionType = {
 };
 
 const Form = () => {
-  const [selectedCountry, setSelectedCountry] =
-    React.useState<OptionType | null>(null);
-  const [selectedcity, setSelectedcity] = React.useState<OptionType | null>(
-    null
-  );
-  const [selectedtravel, setSelectedtravel] = React.useState<OptionType | null>(
-    null
-  );
-  const [selectedstatus, setSelectedstatus] = React.useState<OptionType | null>(
-    null
-  );
-  const [selectedGender, setSelectedGender] = React.useState<OptionType | null>(
-    null
-  );
-  const [selectedvisatype, setSelectedvisatype] =
-    React.useState<OptionType | null>(null);
-  const [selectedposition, setSelectedposition] =
-    React.useState<OptionType | null>(null);
-  const [dateofbirthValue, setDateofbirthValue] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [passportno, setpassportno] = useState("");
-  const [confirmpassportno, setconfirmpassportno] = useState("");
-  const [passportissueplace, setpassportissueplace] = useState("");
-  const [email, setemail] = useState("");
-  const [phoneno, setphoneno] = useState("");
-  const [nationalid, setnationalid] = useState("");
-  const [other, setother] = useState("");
-  const [dateofissueValue, setDateofissueValue] = useState("");
-  const [dateofexpireValue, setDateofexpireValue] = useState("");
+  // const [selectedCountry, setSelectedCountry] =
+  //   React.useState<OptionType | null>(null);
+  // const [selectedcity, setSelectedcity] = React.useState<OptionType | null>(
+  //   null
+  // );
+  // const [selectedtravel, setSelectedtravel] = React.useState<OptionType | null>(
+  //   null
+  // );
+  // const [selectedstatus, setSelectedstatus] = React.useState<OptionType | null>(
+  //   null
+  // );
+  // const [selectedGender, setSelectedGender] = React.useState<OptionType | null>(
+  //   null
+  // );
+  // const [selectedvisatype, setSelectedvisatype] =
+  //   React.useState<OptionType | null>(null);
+  // const [selectedposition, setSelectedposition] =
+  //   React.useState<OptionType | null>(null);
+  // const [dateofbirthValue, setDateofbirthValue] = useState("");
+  // const [firstname, setFirstname] = useState("");
+  // const [lastname, setLastname] = useState("");
+  // const [passportno, setpassportno] = useState("");
+  // const [confirmpassportno, setconfirmpassportno] = useState("");
+  // const [passportissueplace, setpassportissueplace] = useState("");
+  // const [email, setemail] = useState("");
+  // const [phoneno, setphoneno] = useState("");
+  // const [nationalid, setnationalid] = useState("");
+  // const [other, setother] = useState("");
+  // const [dateofissueValue, setDateofissueValue] = useState("");
+  // const [dateofexpireValue, setDateofexpireValue] = useState("");
 
-  const handleCountry = (selectedOption: any) => {
-    setSelectedCountry(selectedOption);
-  };
+  // const handleCountry = (selectedOption: any) => {
+  //   setSelectedCountry(selectedOption);
+  // };
 
-  const handlecity = (selectedOption: any) => {
-    setSelectedcity(selectedOption);
-  };
+  // const handlecity = (selectedOption: any) => {
+  //   setSelectedcity(selectedOption);
+  // };
 
-  const handletravel = (selectedOption: any) => {
-    setSelectedtravel(selectedOption);
-  };
+  // const handletravel = (selectedOption: any) => {
+  //   setSelectedtravel(selectedOption);
+  // };
 
-  const handlegender = (selectedOption: any) => {
-    setSelectedGender(selectedOption);
-  };
+  // const handlegender = (selectedOption: any) => {
+  //   setSelectedGender(selectedOption);
+  // };
 
-  const handleposition = (selectedOption: any) => {
-    setSelectedposition(selectedOption);
-  };
+  // const handleposition = (selectedOption: any) => {
+  //   setSelectedposition(selectedOption);
+  // };
 
-  const handlestatus = (selectedOption: any) => {
-    setSelectedstatus(selectedOption);
-  };
+  // const handlestatus = (selectedOption: any) => {
+  //   setSelectedstatus(selectedOption);
+  // };
 
-  const handlevisatype = (selectedOption: any) => {
-    setSelectedvisatype(selectedOption);
-  };
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  // const handlevisatype = (selectedOption: any) => {
+  //   setSelectedvisatype(selectedOption);
+  // };
+  // const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const FormSubmit = async (event: any) => {
-    try {
-      event.preventDefault();
-      if (selectedCountry) {
-        const res = await fetch(`${BASE_URL}/api/form`, {
-          method: "POST",
-          body: JSON.stringify({
-            country: selectedCountry?.label,
-            city: selectedcity?.label,
-            countrytravelto: selectedtravel?.label,
-            firstname: firstname,
-            lastname: lastname,
-            dateofbirth: dateofbirthValue,
-            gender: selectedGender?.label,
-            martialstatus: selectedstatus?.label,
-            passportno: passportno,
-            confirmpassportno: confirmpassportno,
-            passportissuedate: dateofissueValue,
-            passportissueplace: passportissueplace,
-            passportexpirydate: dateofexpireValue,
-            visatype: selectedvisatype?.label,
-            email: email,
-            phoneno: phoneno,
-            nationalid: nationalid,
-            postionappliedfor: selectedposition?.label,
-            other: other,
-          }),
-        });
-        console.log(res.ok);
+  // const FormSubmit = async (event: any) => {
+  //   try {
+  //     event.preventDefault();
+  //     if (selectedCountry) {
+  //       const res = await fetch(`${BASE_URL}/api/form`, {
+  //         method: "POST",
+  //         body: JSON.stringify({
+  //           country: selectedCountry?.label,
+  //           city: selectedcity?.label,
+  //           countrytravelto: selectedtravel?.label,
+  //           firstname: firstname,
+  //           lastname: lastname,
+  //           dateofbirth: dateofbirthValue,
+  //           gender: selectedGender?.label,
+  //           martialstatus: selectedstatus?.label,
+  //           passportno: passportno,
+  //           confirmpassportno: confirmpassportno,
+  //           passportissuedate: dateofissueValue,
+  //           passportissueplace: passportissueplace,
+  //           passportexpirydate: dateofexpireValue,
+  //           visatype: selectedvisatype?.label,
+  //           email: email,
+  //           phoneno: phoneno,
+  //           nationalid: nationalid,
+  //           postionappliedfor: selectedposition?.label,
+  //           other: other,
+  //         }),
+  //       });
+  //       console.log(res.ok);
 
-        toast.success("Form Submit Successfully"),
-          {
-            position: "top-right",
-          };
-        if (res.ok) {
-          toast.success("Form submitted successfully", {
-            position: "top-right",
-          });
-          setIsSubmitted(true); // Set state to show the new button
-        } else {
-          toast.error("Failed to submit form", {
-            position: "top-right",
-          });
-        }
-      }
-      setSelectedcity(null);
-      setSelectedCountry(null);
-      setSelectedtravel(null);
-      setSelectedGender(null);
-      setSelectedstatus(null);
-      setSelectedvisatype(null);
-      setSelectedposition(null);
-      setFirstname("");
-      setLastname("");
-      setDateofbirthValue("");
-      setpassportno("");
-      setconfirmpassportno("");
-      setpassportissueplace("");
-      setDateofissueValue("");
-      setDateofexpireValue("");
-      setemail("");
-      setphoneno("");
-      setnationalid("");
-      setother("");
-    } catch (error) {
-      console.log("error");
+  //       toast.success("Form Submit Successfully"),
+  //         {
+  //           position: "top-right",
+  //         };
+  //       if (res.ok) {
+  //         toast.success("Form submitted successfully", {
+  //           position: "top-right",
+  //         });
+  //         setIsSubmitted(true); // Set state to show the new button
+  //       } else {
+  //         toast.error("Failed to submit form", {
+  //           position: "top-right",
+  //         });
+  //       }
+  //     }
+  //     setSelectedcity(null);
+  //     setSelectedCountry(null);
+  //     setSelectedtravel(null);
+  //     setSelectedGender(null);
+  //     setSelectedstatus(null);
+  //     setSelectedvisatype(null);
+  //     setSelectedposition(null);
+  //     setFirstname("");
+  //     setLastname("");
+  //     setDateofbirthValue("");
+  //     setpassportno("");
+  //     setconfirmpassportno("");
+  //     setpassportissueplace("");
+  //     setDateofissueValue("");
+  //     setDateofexpireValue("");
+  //     setemail("");
+  //     setphoneno("");
+  //     setnationalid("");
+  //     setother("");
+  //   } catch (error) {
+  //     console.log("error");
+  //   }
+  // };
+  const line1 = "Book a medical examination appointment ";
+
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event:any) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "41ea5fde-53a9-47b6-a684-2861d885b314");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
     }
   };
-  const line1 = "Book a medical examination appointment ";
 
   return (
     <>
@@ -199,36 +220,43 @@ const Form = () => {
                       (required)
                     </span>
                   </div>
-                  <Select
-                    className="  rounded-xl "
-                    value={selectedCountry}
-                    onChange={handleCountry}
-                    options={countries}
-                    placeholder="Select a country"
-                    styles={{
-                      control: (provided) => ({
-                        ...provided,
-                        backgroundColor: "#e6e5e5fd",
-                        borderColor: "gray",
-                        fontSize: "14px",
-                        color: "gray",
-                      }),
-                      menu: (provided) => ({
-                        ...provided,
-                        backgroundColor: "white", // Background color for the menu
-                        color: "white", // Text color in the menu
-                        fontSize: "10px",
-                      }),
-                      option: (provided) => ({
-                        ...provided,
-                        color: "black",
-                      }),
-                      singleValue: (provided) => ({
-                        ...provided,
-                        color: "black", // Text color for the selected value
-                      }),
-                    }}
-                  />
+
+                  <div>
+
+                      <Select
+                        className="  rounded-xl "
+                        // value={selectedCountry}
+                        // onChange={handleCountry}
+                        options={countries}
+                        placeholder="Select a country"
+                        name="country"
+                        styles={{
+                          control: (provided) => ({
+                            ...provided,
+                            backgroundColor: "#e6e5e5fd",
+                            borderColor: "gray",
+                            fontSize: "14px",
+                            color: "gray",
+                          }),
+                          menu: (provided) => ({
+                            ...provided,
+                            backgroundColor: "white", // Background color for the menu
+                            color: "white", // Text color in the menu
+                            fontSize: "10px",
+                          }),
+                          option: (provided) => ({
+                            ...provided,
+                            color: "black",
+                          }),
+                          singleValue: (provided) => ({
+                            ...provided,
+                            color: "black", // Text color for the selected value
+                          }),
+                        }}
+                      />
+
+
+                  </div>
                 </div>
               </div>
               {/* city */}
@@ -242,8 +270,8 @@ const Form = () => {
                   </div>
                   <Select
                     className="  rounded-xl "
-                    value={selectedcity}
-                    onChange={handlecity}
+                    // value={selectedcity}
+                    // onChange={handlecity}
                     options={city}
                     placeholder="Select your city
 "
@@ -274,7 +302,7 @@ const Form = () => {
                 </div>
               </div>
               {/* country traveling to */}
-              <div className="flex flex-col w-full  justify-end ">
+              {/* <div className="flex flex-col w-full  justify-end ">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">
@@ -318,14 +346,14 @@ const Form = () => {
                     }}
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Candidate's information*/}
 
             <div className="grid w-full  grid-cols-1 sm:grid-cols-2 md:grid-cols-3   gap-10 pt-20">
               {/* first name */}
-              <div className="  flex-col w-full  justify-end ">
+              {/* <div className="  flex-col w-full  justify-end ">
                 <div className="space-y-4">
                   <p className="text-xl font-bold">Candidate's information</p>
 
@@ -348,9 +376,9 @@ const Form = () => {
                   border"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* last name */}
-              <div className="   w-full  place-self-end ">
+              {/* <div className="   w-full  place-self-end ">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">
@@ -372,9 +400,9 @@ const Form = () => {
                   border"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* date of birth */}
-              <div className="   w-full  place-self-end ">
+              {/* <div className="   w-full  place-self-end ">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">
@@ -396,9 +424,9 @@ const Form = () => {
                     placeholder="MM/DD/YY"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* gender */}
-              <div className="space-y-4">
+              {/* <div className="space-y-4">
                 <div className=" flex justify-between items-center">
                   <p className="text-sm font-bold text-gray-500 ">Gender</p>
 
@@ -437,9 +465,9 @@ const Form = () => {
                     }),
                   }}
                 />
-              </div>
+              </div> */}
               {/* status */}
-              <div className="space-y-4">
+              {/* <div className="space-y-4">
                 <div className=" flex justify-between items-center">
                   <p className="text-sm font-bold text-gray-500 ">
                     Marital status
@@ -480,9 +508,9 @@ const Form = () => {
                     }),
                   }}
                 />
-              </div>
+              </div> */}
               {/* password number */}
-              <div className="   w-full   ">
+              {/* <div className="   w-full   ">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">
@@ -504,9 +532,9 @@ const Form = () => {
                   border"
                   />
                 </div>
-              </div>
+              </div> */}
               {/*Confirm password number */}
-              <div className="   w-full   ">
+              {/* <div className="   w-full   ">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">
@@ -527,9 +555,9 @@ const Form = () => {
                   border"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* password issue date */}
-              <div className="   w-full  place-self-end">
+              {/* <div className="   w-full  place-self-end">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">
@@ -550,9 +578,9 @@ const Form = () => {
                     placeholder="MM/DD/YY"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* password issue place */}
-              <div className="   w-full   ">
+              {/* <div className="   w-full   ">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">
@@ -574,9 +602,9 @@ const Form = () => {
                   border"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* password expiry date */}
-              <div className="   w-full  place-self-end ">
+              {/* <div className="   w-full  place-self-end ">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">
@@ -597,9 +625,9 @@ const Form = () => {
                     placeholder="MM/DD/YY"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* visa type */}
-              <div className="space-y-4">
+              {/* <div className="space-y-4">
                 <div className=" flex justify-between items-center">
                   <p className="text-sm font-bold text-gray-500 ">Visa Type</p>
 
@@ -639,9 +667,9 @@ const Form = () => {
                     }),
                   }}
                 />
-              </div>
+              </div> */}
               {/* email */}
-              <div className="   w-full   ">
+              {/* <div className="   w-full   ">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">Email ID</p>
@@ -661,9 +689,9 @@ const Form = () => {
                   border"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* phone no */}
-              <div className="   w-full   ">
+              {/* <div className="   w-full   ">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">Phone no</p>
@@ -683,9 +711,9 @@ const Form = () => {
                   border"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* notion id */}
-              <div className="   w-full   ">
+              {/* <div className="   w-full   ">
                 <div className="space-y-4">
                   <div className=" flex justify-between items-center">
                     <p className="text-sm font-bold text-gray-500 ">
@@ -708,9 +736,9 @@ const Form = () => {
                   border"
                   />
                 </div>
-              </div>
+              </div> */}
               {/* position applied for*/}
-              <div className="space-y-4   ">
+              {/* <div className="space-y-4   ">
                 <div className=" flex justify-between items-center">
                   <p className="text-sm font-bold text-gray-500 ">
                     Position applied for
@@ -752,9 +780,9 @@ const Form = () => {
                     }),
                   }}
                 />
-              </div>
+              </div> */}
               {/* Other */}
-              <div className="space-y-4  md:w-[400px] ">
+              {/* <div className="space-y-4  md:w-[400px] ">
                 <div className=" flex justify-between items-center">
                   <p className="text-sm font-bold text-gray-500 ">Other</p>
 
@@ -763,7 +791,6 @@ const Form = () => {
                   </span>
                 </div>
                 <div className="flex space-x-2">
-                  {/* <input type="checkbox"></input> */}
 
                   <input
                     value={other}
@@ -777,9 +804,9 @@ const Form = () => {
                   border"
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
-
+            {/* 
             <div className="flex  flex-col items-end justify-end">
               <div className="flex justify-end items-center w-full space-x-4">
                 <button
@@ -822,7 +849,7 @@ const Form = () => {
                   معلومات کے ساتھ بھر لیا ہے۔
                 </span>
               </p>
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </motion.div>

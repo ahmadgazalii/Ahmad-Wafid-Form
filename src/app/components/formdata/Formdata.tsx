@@ -1,4 +1,4 @@
-export const countries = [{ value: "pk", label: "Pakistan" }];
+export const countries = [{ value: "pakistan", label: "Pakistan" }];
 
 export const city = [
   { value: "lahore", label: "Lahore" },
@@ -19,35 +19,34 @@ export const traveling = [
   { value: "Oman", label: "Oman" },
   { value: "Qatar", label: "Qatar" },
   { value: "Saudi Arabia", label: "Saudi Arabia" },
-  { value: "multan", label: "Multan" },
   { value: "UAE", label: "UAE" },
   { value: "Yemen", label: "Yemen" },
 ];
 
-export const nationality = [
-  { value: "us", label: "United States" },
-  { value: "ca", label: "Canada" },
-  { value: "uk", label: "United Kingdom" },
-  { value: "au", label: "Australia" },
-  { value: "in", label: "India" },
-  { value: "us", label: "United States" },
-  { value: "ca", label: "Canada" },
-  { value: "uk", label: "United Kingdom" },
-  { value: "au", label: "Australia" },
-  { value: "in", label: "India" },
-];
+// export const nationality = [
+//   { value: "us", label: "United States" },
+//   { value: "ca", label: "Canada" },
+//   { value: "uk", label: "United Kingdom" },
+//   { value: "au", label: "Australia" },
+//   { value: "in", label: "India" },
+//   { value: "us", label: "United States" },
+//   { value: "ca", label: "Canada" },
+//   { value: "uk", label: "United Kingdom" },
+//   { value: "au", label: "Australia" },
+//   { value: "in", label: "India" },
+// ];
 
 export const gender = [
-  { value: "ma", label: "Male" },
-  { value: "fe", label: "Female" },
+  { value: "male", label: "Male" },
+  { value: "female", label: "Female" },
 ];
 export const status = [
-  { value: "si", label: "Single" },
-  { value: "ma", label: "Married" },
+  { value: "single", label: "Single" },
+  { value: "married", label: "Married" },
 ];
 export const visatype = [
-  { value: "si", label: "Work Visa" },
-  { value: "ma", label: "Family Visa" },
+  { value: "work visa", label: "Work Visa" },
+  { value: "family visa", label: "Family Visa" },
 ];
 
 export const position = [

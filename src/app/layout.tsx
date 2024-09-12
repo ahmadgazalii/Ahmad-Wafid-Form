@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Slab } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import Navbar from "./comPonents/Navbar";
 
 const roboto = Roboto_Slab({
   subsets: ["latin"],
