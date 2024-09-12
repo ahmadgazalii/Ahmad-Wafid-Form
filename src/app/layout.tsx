@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Slab } from "next/font/google";
 import "./globals.css";
-import Navbar from "./comPonents/Navbar";
+import Navbar from "./components/Navbar";
 
 const roboto = Roboto_Slab({
   subsets: ["latin"],
@@ -20,12 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        
-      <Navbar   />
+        <Navbar />
 
         {children}
-        
-        </body>
+      </body>
     </html>
   );
 }
