@@ -31,6 +31,7 @@ import {
 } from "./formdata/Formdata";
 import { Input } from "@/components/ui/input";
 import { letter, sentence } from "./animations/Motion";
+import Link from "next/link";
 
 // Define the schema with validation for all fields, including password match check
 const FormSchema = z
@@ -62,6 +63,8 @@ const FormSchema = z
 
 export function Formik() {
   const [result, setResult] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false); // State to track form submission
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -119,6 +122,7 @@ export function Formik() {
 
       if (responseData.success) {
         setResult("Form Submitted Successfully");
+        setIsSubmitted(true); // Set this to true to show "Continue" button
         form.reset();
       } else {
         setResult(responseData.message || "Submission failed");
@@ -131,7 +135,7 @@ export function Formik() {
 
   return (
     <div className="w-full">
-      <div className="max-w-[1100px] justify-items-end border p-6 sm:p-10 rounded-xl shadow-md shadow-black border-gray-300 items-center flex flex-col mx-auto text-black bg-[#ffff]">
+      <div className="   max-w-[1100px] justify-items-end border p-6 sm:p-10 rounded-xl shadow-md shadow-black border-gray-300 items-center flex flex-col mx-auto text-black bg-[#ffff]">
         <div className="w-full">
           <motion.p variants={sentence} initial="hidden" animate="visible">
             {line1.split("").map((char, index) => (
@@ -587,9 +591,25 @@ export function Formik() {
                 )}
               />
             </div>
-            <Button type="submit">Submit</Button>
-            {result && <p>{result}</p>} {/* Display the result message */}
+
+            <div className="w-full flex justify-end">
+              <Button
+                type="submit"
+                className="sm:px-14  px-7 py-6"
+                disabled={isSubmitted}
+              >
+                Submit
+              </Button>
+              {isSubmitted && (
+                <Link href={"/payment"}>
+                  <Button className="ml-4 sm:px-14  px-7 py-6">Payment</Button>{" "}
+               </Link>
+              )}
+            </div>
           </form>
+          <div className=" text-end w-full mt-6 text-green-500">
+            {result && <p>{result}</p>} {/* Display the result message */}
+          </div>
         </Form>
       </div>
     </div>
