@@ -16,7 +16,7 @@ const payments = () => {
   };
   return (
     <div className="w-full h-full">
-      <div className="flex mx-auto items-center justify-center p-4 max-w-[1000px] pt-10 ">
+      <div className="flex mx-auto flex-col items-center justify-center p-4 max-w-[1000px] pt-10 ">
         <div className="border w-full sm:w-[80%] md:w-[60%] lg:w-[50%] py-6 flex items-center justify-center rounded-3xl border-slate-600">
           <div className="flex flex-col space-y-3 sm:space-y-6">
             <div className="flex flex-col md:flex-row space-x-4 items-center">
@@ -133,6 +133,31 @@ const payments = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="w-full mt-6">
+          <div className="space-y-3">
+            <p className="text-xl   text-red-700 font-bold ">
+              Important Announcement:
+            </p>
+
+            <p>
+              Pay the total amount of 4000{" "}
+              <span className="text-red-800">(Four Thousand Rupees only)</span>{" "}
+              on the one of the above given account number and after payment
+              share the screenshot of payment on WhatsApp{" "}
+              <span className="text-red-800">(0318 0414119)</span> for the
+              confirmation purpose. Thank You..!
+            </p>
+
+            <p>
+              مذکورہ اکاؤنٹ نمبر میں سے کسی ایک پر کل رقم 4000 (صرف چار ہزار
+              روپے) ادا کریں اور ادائیگی کے بعد تصدیق کے مقصد کے لیے ادائیگی کا
+              اسکرین شاٹ WhatsApp{" "}
+              <span className="text-red-800">(0318 0414119)</span> پر شیئر کریں۔
+              شکریہ..!
+            </p>
           </div>
         </div>
       </div>

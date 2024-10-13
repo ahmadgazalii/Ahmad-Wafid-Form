@@ -14,19 +14,23 @@ const Navbar = () => {
   };
   return (
     <div className="w-full  shadow-sm shadow-black">
-      <div className=" py-4 items-center flex max-w-[1400px] px-4 md:mx-auto md:px-8 justify-between ">
-        <div className="flex items-center space-x-2">
-          <div className=" w-16 flex items-center sm:w-[80px] sm:h-[80px]">
-            <Image src={"/tree.png"} alt="/logo" width={80} height={80} />
+      <div className="  items-center flex max-w-[1400px] px-4 md:mx-auto md:px-8 justify-between ">
+        <div className="flex items-center ">
+          <div className=" w-16 flex items-center sm:w-[130px] sm:h-[90px]">
+            <Image
+              src={"/wafid-logo.svg"}
+              alt="/logo"
+              width={150}
+              height={150}
+            />
           </div>
-          <p className="sm:text-2xl font-bold text-black"> Wafid Appoinment</p>
         </div>
 
         <button
           onClick={handleClick}
-          className="bg-green-500 hover:bg-green-700 text-white font-bold p-2 sm:py-4 sm:px-4 rounded  text-xs sm:text-[18px]"
+          className=""
         >
-          Contact via WhatsApp
+          <Image src={"/whatsapp.png"} alt="/logo" width={60} height={60} />{" "}
         </button>
       </div>
     </div>

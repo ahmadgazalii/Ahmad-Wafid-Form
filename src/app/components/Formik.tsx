@@ -32,6 +32,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { letter, sentence } from "./animations/Motion";
 import Link from "next/link";
+import { Label } from "@radix-ui/react-label";
 
 // Define the schema with validation for all fields, including password match check
 const FormSchema = z
@@ -55,6 +56,7 @@ const FormSchema = z
     nationalId: z.string().min(1, "National ID is required"),
 
     position: z.string().min(1, "Select position"),
+    others: z.string().optional(), // Optional "others" field
   })
   .refine((data) => data.passportNumber === data.confirmPassport, {
     message: "Passport numbers do not match.",
@@ -86,6 +88,7 @@ export function Formik() {
       phoneNumber: "",
       nationalId: "",
       position: "",
+      others: "", // Optional field default value
     },
   });
 
@@ -111,6 +114,7 @@ export function Formik() {
     formData.append("phoneNumber", data.phoneNumber);
     formData.append("nationalId", data.nationalId);
     formData.append("position ", data.position);
+    formData.append("others", data.others || ""); // Append "others" only if it's filled
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -131,11 +135,11 @@ export function Formik() {
       setResult("An error occurred during submission.");
     }
   };
-  const line1 = "Book a medical examination appointment ";
+  const line1 = "Book an appointment ";
 
   return (
     <div className="w-full">
-      <div className="   max-w-[1100px] justify-items-end border p-6 sm:p-10 rounded-xl shadow-md shadow-black border-gray-300 items-center flex flex-col mx-auto text-black bg-[#ffff]">
+      <div className="   max-w-[1000px] justify-items-end border p-6 sm:p-10 rounded-xl shadow-md shadow-black border-gray-300 items-center flex flex-col mx-auto text-black bg-[#ffff]">
         <div className="w-full">
           <motion.p variants={sentence} initial="hidden" animate="visible">
             {line1.split("").map((char, index) => (
@@ -590,6 +594,20 @@ export function Formik() {
                   </FormItem>
                 )}
               />
+
+              {/* others */}
+
+              <div className="w-full space-y-3 flex flex-col">
+                <label className="text-gray-500 text-sm font-bold" htmlFor="others">
+                  Others 
+                </label>
+                <textarea
+                className="  border border-gray-600 rounded-lg placeholder:text-xs pl-3 pt-3"
+                  placeholder="Write any Note"
+                  id="others"
+                  {...form.register("others")}
+                />
+              </div>
             </div>
 
             <div className="w-full flex justify-end">
@@ -598,12 +616,12 @@ export function Formik() {
                 className="sm:px-14  px-7 py-6"
                 disabled={isSubmitted}
               >
-                Submit
+                Save and Contiune
               </Button>
               {isSubmitted && (
                 <Link href={"/payment"}>
                   <Button className="ml-4 sm:px-14  px-7 py-6">Payment</Button>{" "}
-               </Link>
+                </Link>
               )}
             </div>
           </form>

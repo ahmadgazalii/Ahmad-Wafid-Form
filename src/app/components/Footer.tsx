@@ -4,19 +4,18 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="w-full bg-gray-600 ">
-      <div className="max-w-[1200px] mx-auto flex flex-col justify-center  items-center h-[300px] ">
+      <div className="max-w-[1200px] mx-auto flex flex-col justify-center  items-center py-8 space-y-4 ">
         <div className="flex items-center justify-center">
           <div>
-            <Image src={"/tree.png"} alt="/" width={120} height={120} />
-          </div>
-          <p className="text-white sm:text-2xl font-bold ">Wafid Appoinment</p>
-          <div>
-            <Image src={"/arab1.png"} alt="/" width={120} height={120} />
+            <Image src={"/wafid2.svg"} alt="/" width={200} height={200} />
           </div>
         </div>
 
-        <div className="w-full flex justify-between pt-10  px-2">
-          <div className="space-y-2 ">
+        <div
+          className="w-full flex justify-center items-center
+           px-2"
+        >
+          <div className="space-y-2  text-center">
             <p className="text-white text-lg">Contact number</p>
             <p className="text-white text-sm">+92 318 0414119 </p>
             <p className="text-white text-sm">+92 318 0414119 </p>
