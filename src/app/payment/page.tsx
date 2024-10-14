@@ -142,22 +142,25 @@ const payments = () => {
               Important Announcement:
             </p>
 
-            <p>
-              Pay the total amount of 4000{" "}
-              <span className="text-red-800">(Four Thousand Rupees only)</span>{" "}
-              on the one of the above given account number and after payment
-              share the screenshot of payment on WhatsApp{" "}
-              <span className="text-red-800">(0318 0414119)</span> for the
-              confirmation purpose. Thank You..!
-            </p>
+            <ul className="list-disc pl-5">
+              <li>Please transfer 4000 to the following account details</li>
+              <li>After payment send the screenshot on 03180414119</li>
+              <li>
+                Please wait 1 hour. The token will be sent to your email and
+                your WhatsApp number.
+              </li>
+            </ul>
 
-            <p>
-              مذکورہ اکاؤنٹ نمبر میں سے کسی ایک پر کل رقم 4000 (صرف چار ہزار
-              روپے) ادا کریں اور ادائیگی کے بعد تصدیق کے مقصد کے لیے ادائیگی کا
-              اسکرین شاٹ WhatsApp{" "}
-              <span className="text-red-800">(0318 0414119)</span> پر شیئر کریں۔
-              شکریہ..!
-            </p>
+            <ul className="list-disc pl-5 pt-6 text-end">
+              <li>
+                براہ کرم 4000 کی رقم درج ذیل اکاؤنٹ کی تفصیلات پر منتقل کریں۔
+              </li>
+              <li>ادائیگی کے بعد اسکرین شاٹ 03180414119 پر بھیجیں۔</li>
+              <li>
+                براہ کرم 1 گھنٹہ انتظار کریں۔ ٹوکن آپ کے ای میل اور WhatsApp
+                نمبر پر بھیجا جائے گا۔
+              </li>
+            </ul>
           </div>
         </div>
       </div>
