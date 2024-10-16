@@ -27,12 +27,10 @@ const payments = () => {
                 <p>
                   Iban No :{" "}
                   <span className="border-gray-600 rounded-full px-3 py-1 text-xs sm:text-sm font-bold border-[0.5px] bg-lime-200">
-                    57834573495083409567345657
+                    02190105315550
                     <FaCopy
                       className="inline ml-2 cursor-pointer"
-                      onClick={() =>
-                        copyToClipboard("57834573495083409567345657")
-                      }
+                      onClick={() => copyToClipboard("02190105315550")}
                     />
                   </span>
                 </p>
@@ -57,12 +55,10 @@ const payments = () => {
                   Iban No :{" "}
                   <span className="border-gray-600 rounded-full px-3 py-1 text-xs sm:text-sm font-bold border-[0.5px] bg-lime-200">
                     {" "}
-                    57834573495083409567345657
+                    5010316611000019
                     <FaCopy
                       className="inline ml-2 cursor-pointer"
-                      onClick={() =>
-                        copyToClipboard("57834573495083409567345657")
-                      }
+                      onClick={() => copyToClipboard("5010316611000019")}
                     />
                   </span>
                 </p>
@@ -86,12 +82,10 @@ const payments = () => {
                   Iban No :{" "}
                   <span className="border-gray-600 rounded-full px-3 py-1 text-xs sm:text-sm font-bold border-[0.5px] bg-lime-200">
                     {" "}
-                    57834573495083409567345657
+                    03180414119
                     <FaCopy
                       className="inline ml-2 cursor-pointer"
-                      onClick={() =>
-                        copyToClipboard("57834573495083409567345657")
-                      }
+                      onClick={() => copyToClipboard("03180414119")}
                     />
                   </span>
                 </p>
@@ -106,7 +100,7 @@ const payments = () => {
             </div>
             <div className="h-[2px] w-full bg-slate-300 rounded-full" />
 
-            <div className="flex flex-col md:flex-row space-x-4 items-center">
+            {/* <div className="flex flex-col md:flex-row space-x-4 items-center">
               <div className="w-[100px] flex justify-center">
                 <Image src={"/jazzcash.png"} alt="/" height={80} width={80} />
               </div>
@@ -132,7 +126,7 @@ const payments = () => {
                   </span>
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
